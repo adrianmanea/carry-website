@@ -16,7 +16,7 @@ const FALLBACK_NAV = [
   { url: '/#pricing', label: 'Pricing' },
 ]
 
-const FALLBACK_CTA = { url: '/tools', label: 'Migrate free →' }
+const FALLBACK_CTA = { url: '/download', label: 'Download →' }
 
 export const HeaderNav: React.FC<{ data: HeaderType }> = ({ data }) => {
   const navItems = data?.navItems || []

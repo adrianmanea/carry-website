@@ -30,7 +30,9 @@ export const HomePage: React.FC = () => {
           intelligently, in minutes. Dates, folders, and attachments intact. Nothing left behind.
         </p>
         <div className="mt-8 flex flex-wrap items-center gap-3 md:mt-12">
-          <Button size="lg">Migrate Apple Notes free →</Button>
+          <Button size="lg" asChild>
+            <Link href="/download">Download for Mac — Free →</Link>
+          </Button>
           <Button variant="secondary" size="lg" asChild>
             <Link href="/tools">Browse free tools</Link>
           </Button>
