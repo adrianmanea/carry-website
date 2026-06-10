@@ -12,8 +12,11 @@ export const HighImpactHero: React.FC<Page['hero']> = ({ links, media, richText 
   const { setHeaderTheme } = useHeaderTheme()
 
   useEffect(() => {
-    setHeaderTheme('dark')
-  })
+    /* Let the navbar inherit the site theme (consistent across the site). The
+       hero keeps its own local data-theme="dark" below for white text over the
+       image; only the shared header should not be forced dark. */
+    setHeaderTheme(null)
+  }, [setHeaderTheme])
 
   return (
     <div
