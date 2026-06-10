@@ -103,9 +103,39 @@ Notes:
 
 Project → **Deployments → Redeploy** (or just `git push` again).
 
-The build runs `next build` + `next-sitemap`. On boot Payload connects to Neon
-and creates its tables. First build is the slowest (~2–4 min); later ones are
-faster.
+### How the database schema gets created
+
+Payload only auto-creates tables in **dev** (`push` mode). In production it runs
+**migrations**, so the schema comes from a committed migration file, not at
+runtime. This repo is already set up for that:
+
+- `src/migrations/` holds the initial migration (all tables).
+- `vercel.json` sets the build command to **`npm run ci`**, which runs
+  `payload migrate` (applies migrations to Neon) **before** `next build`.
+- `engines.node` is pinned to **`22.x`** — Payload's migrate CLI breaks on
+  Node 24 (a tsx bug: `node:crypto?tsx-namespace`), so the build must run on
+  Node 22.
+
+> Make sure the Vercel **Build Command** (Settings → General) is on default
+> (empty) so `vercel.json`'s `npm run ci` is used. If it's overridden to
+> `next build`, migrations won't run and you'll get
+> `relation "pages" does not exist`.
+
+The build runs `payload migrate` → `next build` → `next-sitemap`. `payload
+migrate` is idempotent — it skips already-applied migrations on every deploy.
+First build is the slowest (~2–4 min); later ones are faster.
+
+### When you change the schema later
+
+After editing collections/fields, generate a new migration locally and commit it:
+
+```bash
+# uses Node 22 — Payload migrate is broken on Node 24
+PATH="$(brew --prefix node@22)/bin:$PATH" npm run payload migrate:create <name>
+git add src/migrations && git commit -m "migration: <name>" && git push
+```
+
+Vercel applies it on the next deploy.
 
 ---
 
@@ -144,7 +174,10 @@ No CI config needed.
 
 | Symptom | Cause | Fix |
 |---|---|---|
+| Runtime: `relation "pages" does not exist` | Migrations didn't run | Ensure Build Command is default so `vercel.json` → `npm run ci` runs `payload migrate`; check `engines.node` is `22.x`; redeploy |
+| Build fails: `node:crypto?tsx-namespace` | Build ran on Node 24 | Pin `engines.node` to `22.x` (already set); redeploy |
 | Build fails: `DATABASE_URL` undefined | DB not connected / env not set | Finish Step 2, redeploy |
+| `payload migrate` errors on Neon (pooling / prepared-statement) | Pooled PgBouncer endpoint | Set `DATABASE_URL` to the **non-pooling** value (`POSTGRES_URL_NON_POOLING` / `DATABASE_URL_UNPOOLED`) and redeploy |
 | Uploaded images 404 after a deploy | Blob not configured | Add Blob (Step 4); confirm `BLOB_READ_WRITE_TOKEN` exists, redeploy |
 | Admin login loops / JWT errors | `PAYLOAD_SECRET` changed or missing | Set a stable `PAYLOAD_SECRET`, don't rotate it casually |
 | Links/OG point at `localhost` | `NEXT_PUBLIC_SERVER_URL` wrong | Set it to the production URL, redeploy |
