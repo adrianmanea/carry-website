@@ -33,6 +33,12 @@ const nextConfig: NextConfig = {
           protocol: url.protocol.replace(':', '') as 'http' | 'https',
         }
       }),
+      // Vercel Blob (production media storage) — store URLs look like
+      // https://<store-id>.public.blob.vercel-storage.com/...
+      {
+        protocol: 'https' as const,
+        hostname: '**.public.blob.vercel-storage.com',
+      },
     ],
   },
   webpack: (webpackConfig) => {
