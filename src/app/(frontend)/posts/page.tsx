@@ -3,6 +3,7 @@ import type { Metadata } from 'next/types'
 import { CollectionArchive } from '@/components/CollectionArchive'
 import { PageRange } from '@/components/PageRange'
 import { Pagination } from '@/components/Pagination'
+import { mergeOpenGraph } from '@/utilities/mergeOpenGraph'
 import configPromise from '@payload-config'
 import { getPayload } from 'payload'
 import React from 'react'
@@ -31,8 +32,14 @@ export default async function Page() {
     <div className="pt-24 pb-24">
       <PageClient />
       <div className="container mb-16">
-        <div className="prose dark:prose-invert max-w-none">
-          <h1>Posts</h1>
+        <div className="max-w-[760px]">
+          <h1 className="text-[clamp(2.5rem,7vw,64px)] font-bold leading-[1.08] tracking-[-0.02em] text-foreground">
+            The Carry blog
+          </h1>
+          <p className="mt-5 text-lg text-muted-foreground md:text-xl">
+            Guides, teardowns, and migration playbooks for leaving your notes app — moving from Apple
+            Notes to Obsidian, Notion, and beyond without losing your structure.
+          </p>
         </div>
       </div>
 
@@ -57,7 +64,12 @@ export default async function Page() {
 }
 
 export function generateMetadata(): Metadata {
+  const title = 'Blog — Note migration guides & playbooks | Carry'
+  const description =
+    'Practical guides for migrating your notes between apps: Apple Notes to Obsidian, Apple Notes to Notion, attachment handling, and clean exports without losing structure.'
   return {
-    title: `Payload Website Template Posts`,
+    title,
+    description,
+    openGraph: mergeOpenGraph({ title, description, url: '/posts' }),
   }
 }

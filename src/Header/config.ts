@@ -25,6 +25,30 @@ export const Header: GlobalConfig = {
         },
       },
     },
+    {
+      name: 'cta',
+      type: 'group',
+      label: 'Call to action button',
+      admin: {
+        description:
+          'Optional primary button shown at the right of the header. Leave empty to use the default.',
+      },
+      fields: [
+        {
+          name: 'enabled',
+          type: 'checkbox',
+          defaultValue: true,
+        },
+        link({
+          appearances: false,
+          overrides: {
+            admin: {
+              condition: (_, siblingData) => Boolean(siblingData?.enabled),
+            },
+          },
+        }),
+      ],
+    },
   ],
   hooks: {
     afterChange: [revalidateHeader],

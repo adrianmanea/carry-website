@@ -117,7 +117,7 @@ export const HomePage: React.FC = () => {
       </section>
 
       {/* ---------- Pricing ---------- */}
-      <section className="mx-auto max-w-[1100px] py-16 md:py-24">
+      <section id="pricing" className="mx-auto max-w-[1100px] scroll-mt-24 py-16 md:py-24">
         <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
           <div className="rounded-[20px] bg-[#F4F4F5] p-8 dark:bg-card">
             <p className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
