@@ -214,6 +214,13 @@
   body {
     @apply bg-background text-foreground min-h-[100vh] flex flex-col;
   }
+  /* Tailwind v4 drops the default pointer cursor on buttons — restore it for
+     every interactive control (covers raw <button>s not using <Button>). */
+  button:not(:disabled),
+  [role='button']:not([aria-disabled='true']),
+  summary {
+    cursor: pointer;
+  }
 }
 
 html {
