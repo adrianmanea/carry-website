@@ -130,35 +130,35 @@
   /* Dona-inspired design system — dark */
   --background: oklch(10.2% 0.003 264deg);        /* #19191B as dark bg */
   --foreground: oklch(98.5% 0 0deg);
-  --card: oklch(13.5% 0.004 264deg);              /* slightly lighter dark surface */
+  --card: oklch(17.5% 0.005 264deg);              /* lifted surface — visible against bg */
   --card-foreground: oklch(98.5% 0 0deg);
-  --popover: oklch(10.2% 0.003 264deg);
+  --popover: oklch(17.5% 0.005 264deg);
   --popover-foreground: oklch(98.5% 0 0deg);
   --primary: oklch(60.8% 0.215 253deg);           /* blue stays vivid */
   --primary-foreground: oklch(100% 0 0deg);
-  --secondary: oklch(18% 0.006 240deg);
+  --secondary: oklch(21% 0.006 240deg);
   --secondary-foreground: oklch(98.5% 0 0deg);
-  --muted: oklch(18% 0.006 240deg);
-  --muted-foreground: oklch(60.5% 0.009 240deg);  /* #8D939B lightened */
-  --accent: oklch(18% 0.006 240deg);
+  --muted: oklch(21% 0.006 240deg);
+  --muted-foreground: oklch(62% 0.009 240deg);
+  --accent: oklch(21% 0.006 240deg);
   --accent-foreground: oklch(98.5% 0 0deg);
   --destructive: oklch(39.6% 0.141 25.723deg);
   --destructive-foreground: oklch(63.7% 0.237 25.331deg);
-  --border: oklch(20% 0.006 240deg);
-  --input: oklch(20% 0.006 240deg);
+  --border: oklch(25% 0.006 240deg);
+  --input: oklch(25% 0.006 240deg);
   --ring: oklch(60.8% 0.215 253deg);
   --chart-1: oklch(60.8% 0.215 253deg);
   --chart-2: oklch(69.6% 0.17 162.48deg);
   --chart-3: oklch(76.9% 0.188 70.08deg);
   --chart-4: oklch(62.7% 0.265 303.9deg);
   --chart-5: oklch(64.5% 0.246 16.439deg);
-  --sidebar: oklch(13.5% 0.004 264deg);
+  --sidebar: oklch(17.5% 0.005 264deg);
   --sidebar-foreground: oklch(98.5% 0 0deg);
   --sidebar-primary: oklch(60.8% 0.215 253deg);
   --sidebar-primary-foreground: oklch(100% 0 0deg);
-  --sidebar-accent: oklch(18% 0.006 240deg);
+  --sidebar-accent: oklch(21% 0.006 240deg);
   --sidebar-accent-foreground: oklch(98.5% 0 0deg);
-  --sidebar-border: oklch(20% 0.006 240deg);
+  --sidebar-border: oklch(25% 0.006 240deg);
   --sidebar-ring: oklch(60.8% 0.215 253deg);
   --success: oklch(28% 0.1 200deg);
   --warning: oklch(35% 0.08 70deg);
