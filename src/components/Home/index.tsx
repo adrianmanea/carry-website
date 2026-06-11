@@ -1,4 +1,3 @@
-import { downloads } from '@/config/downloads'
 import { Button } from '@/components/ui/button'
 import { migrations } from '@/data/migrations'
 import Link from 'next/link'
@@ -25,7 +24,7 @@ export const HomePage: React.FC = () => {
         </p>
         <div className="mt-8 flex flex-wrap items-center gap-3 md:mt-12">
           <Button size="lg" asChild>
-            <a href={downloads.mac.url} download>Download for Mac — Free →</a>
+            <Link href="/download">Download for Mac — Free →</Link>
           </Button>
           <Button variant="secondary" size="lg" asChild>
             <Link href="/tools">Browse free tools</Link>
