@@ -24,6 +24,12 @@ export async function Footer() {
             {navItems.map(({ link }, i) => {
               return <CMSLink className="text-white" key={i} {...link} />
             })}
+            <Link href="/privacy" className="text-sm text-white/60 transition-colors hover:text-white">
+              Privacy
+            </Link>
+            <Link href="/terms" className="text-sm text-white/60 transition-colors hover:text-white">
+              Terms
+            </Link>
           </nav>
         </div>
       </div>
