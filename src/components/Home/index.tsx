@@ -118,32 +118,6 @@ export const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* ---------- Pricing ---------- */}
-      <section id="pricing" className="mx-auto max-w-[1100px] scroll-mt-24 py-16 md:py-24">
-        <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
-          <div className="rounded-[20px] bg-[#F4F4F5] p-8 dark:bg-card">
-            <p className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
-              Free forever
-            </p>
-            <p className="mt-3 text-4xl font-bold text-foreground">$0</p>
-            <p className="mt-3 text-muted-foreground">
-              Full library export to Obsidian, Notion, or Markdown. Per-note attachments, preserved
-              dates and folders, locked-note handling, verification report. No size limits.
-            </p>
-          </div>
-          <div className="rounded-[20px] bg-foreground p-8 text-background">
-            <p className="text-sm font-semibold uppercase tracking-wide text-background/60">
-              Pro · one-time
-            </p>
-            <p className="mt-3 text-4xl font-bold">$19</p>
-            <p className="mt-3 text-background/70">
-              Everything free, plus AI enrichment: title generation, tag taxonomy cleanup, duplicate
-              detection, and the full review UI. One unlock — no subscription.
-            </p>
-          </div>
-        </div>
-      </section>
-
       {/* ---------- Lead capture ---------- */}
       <section className="mx-auto max-w-[760px] py-20 md:py-28">
         <div className="flex flex-col gap-6">

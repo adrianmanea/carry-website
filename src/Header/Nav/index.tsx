@@ -13,7 +13,6 @@ import { SearchIcon } from 'lucide-react'
 const FALLBACK_NAV = [
   { url: '/tools', label: 'Tools' },
   { url: '/posts', label: 'Blog' },
-  { url: '/#pricing', label: 'Pricing' },
 ]
 
 const FALLBACK_CTA = { url: '/download', label: 'Download →' }
