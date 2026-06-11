@@ -1,3 +1,4 @@
+import { downloads } from '@/config/downloads'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 import React from 'react'
@@ -49,18 +50,17 @@ export const DownloadPage: React.FC = () => {
               Your notes never leave your Mac.
             </p>
             <div className="flex flex-wrap items-center gap-3">
-              <Button size="lg" className="gap-2.5">
-                <AppleIcon />
-                Download for Mac — Free
+              <Button size="lg" className="gap-2.5" asChild>
+                <a href={downloads.mac.url} download>
+                  <AppleIcon />
+                  Download for Mac — Free
+                </a>
               </Button>
               <Button variant="secondary" size="lg" asChild>
                 <Link href="#how-it-works">See how it works</Link>
               </Button>
             </div>
-            <p className="text-sm text-muted-foreground">
-              macOS 13+&nbsp;&nbsp;·&nbsp;&nbsp;Apple Silicon &amp; Intel&nbsp;&nbsp;·&nbsp;&nbsp;~40
-              MB
-            </p>
+            <p className="text-sm text-muted-foreground">{downloads.mac.requirements}</p>
           </div>
 
           {/* App icon / screenshot placeholder */}
