@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 
 import { cn } from '@/utilities/ui'
 import { Inter } from 'next/font/google'
+import Script from 'next/script'
 import React from 'react'
 
 const inter = Inter({
@@ -32,6 +33,16 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <link href="/favicon.svg" rel="icon" type="image/svg+xml" />
       </head>
       <body>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-J35F63KRGM"
+          strategy="afterInteractive"
+        />
+        <Script id="gtag-init" strategy="afterInteractive">{`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-J35F63KRGM');
+        `}</Script>
         <Providers>
           <AdminBar
             adminBarProps={{
